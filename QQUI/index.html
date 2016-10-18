@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>微信</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="sui/sm.min.css" />
+
+		<style>
+			#btn-title {
+				width: 50%;
+				margin: 0 auto;
+			}
+			
+			#msg-page,
+			#ab-page,
+			#star-page {
+				transform: none !important;
+			}
+		</style>
+
+	</head>
+
+	<body>
+
+		<div class="page-group">
+			<!--消息页面-->
+			<div class="page page-current" id="msg-page">
+				<!--导航条-->
+				<header class="bar bar-nav">
+					<a class="icon icon-me pull-left"></a>
+					<button class="button pull-right"><b>＋</b></button>
+					<div class="buttons-row" id="btn-title">
+						<a href="" class="tab-link active button">消息</a>
+						<a href="" class="tab-link button">电话</a>
+					</div>
+				</header>
+
+				<!--工具栏-->
+				<nav class="bar bar-tab">
+					<a class="tab-item active">
+						<span class="icon icon-message"></span>
+						<span class="tab-label">消息</span>
+						<span class="badge">99+</span>
+					</a>
+					<a href="#ab-page" class="tab-item">
+						<span class="icon icon-friends"></span>
+						<span class="tab-label">联系人</span>
+					</a>
+					<a href="#star-page" class="tab-item">
+						<span class="icon icon-star"></span>
+						<span class="tab-label">动态</span>
+					</a>
+				</nav>
+				<!--内容区-->
+				<div class="content">
+					<div class="content-block">
+						这里是好友列表
+					</div>
+				</div>
+			</div>
+
+			<!--联系人页面-->
+			<div class="page" id="ab-page">
+				<!--导航条-->
+				<header class="bar bar-nav">
+					<a class="icon icon-me pull-left"></a>
+					<button class="button button-nav button-link pull-right">添加</button>
+					<h1 class="title">联系人</h1>
+				</header>
+				<!--工具栏-->
+				<nav class="bar bar-tab">
+					<a href="#msg-page" class="tab-item">
+						<span class="icon icon-message"></span>
+						<span class="tab-label">消息</span>
+					</a>
+					<a class="tab-item active">
+						<span class="icon icon-friends"></span>
+						<span class="tab-label">联系人</span>
+					</a>
+					<a href="#star-page" class="tab-item">
+						<span class="icon icon-star"></span>
+						<span class="tab-label">动态</span>
+					</a>
+				</nav>
+
+				<!--内容区-->
+				<div class="content">
+					<div class="content-block">
+						这里联系人页面
+					</div>
+				</div>
+			</div>
+
+			<!--动态页面-->
+			<div class="page" id="star-page">
+				<!--导航条-->
+				<header class="bar bar-nav">
+					<a class="icon icon-me pull-left"></a>
+					<button class="button button-nav button-link pull-right">更多</button>
+					<h1 class="title">动态</h1>
+				</header>
+				<!--工具栏-->
+				<nav class="bar bar-tab">
+					<a href="#msg-page" class="tab-item">
+						<span class="icon icon-message"></span>
+						<span class="tab-label">消息</span>
+					</a>
+					<a href="#ab-page" class="tab-item">
+						<span class="icon icon-friends"></span>
+						<span class="tab-label">联系人</span>
+					</a>
+					<a class="tab-item active">
+						<span class="icon icon-star"></span>
+						<span class="tab-label">动态</span>
+					</a>
+				</nav>
+
+				<!--内容区-->
+				<div class="content">
+					<div class="content-block">
+						这是动态页面
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-left" id="info-panel">
+				<div class="content-block">
+					<p>这是侧边栏</p>
+				</div>
+			</div>
+
+
+
+
+
+		</div>
+
+		<script src="sui/zepto.min.js"></script>
+		<script src="sui/sm.min.js"></script>
+	</body>
+
+</html>
+<script>
+	//url中第一个#后面的字符串是url的hash(哈希值).hash值不会随请求发送到服务器,
+	//仅仅是指导浏览器,当页面加载完成时页面显示的那部分
+	//window.location.hash可以访问当前页面的hash值
+	//window.onhashchange事件可以监听hash的变化
+
+	$(document).on('pageInit','#msg-page',function(e,pageID,$page){
+		document.title = '消息'
+		
+	})
+
+	$(document).on('pageInit','#ab-page',function(e,pageID,$page){
+		document.title = '联系人'
+		
+	})
+	
+	$(document).on('pageInit','#star-page',function(e,pageID,$page){
+		document.title = '动态'
+		
+	})
+
+
+	//初始化SUI,该行代码放到script最后一行
+	$.init();
+</script>
